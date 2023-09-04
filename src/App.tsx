@@ -4,7 +4,7 @@ import Header from "./widgets/Header/Header";
 import MySkills from "./components/MySkills/MySkills";
 import MyProjects from "./components/MyProjects/MyProjects";
 import Contact from "./components/Contact/Contact";
-
+import './input.css'
 function App() {
   const scrollToRef = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
