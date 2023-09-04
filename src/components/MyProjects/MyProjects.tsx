@@ -1,4 +1,4 @@
-import React, { FC, RefObject } from "react";
+import { FC, RefObject } from "react";
 import { motion } from "framer-motion";
 import girl from "../../../public/girl-with-laptop-chair-freelance-studying-concept-illustration-vector_199064-194.jpeg";
 interface MyProjectsProps {

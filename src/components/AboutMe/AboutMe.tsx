@@ -1,4 +1,4 @@
-import React, { FC, RefObject, useEffect, useRef } from "react";
+import { FC, RefObject, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import girl from "../../../public/girl-with-laptop-chair-freelance-studying-concept-illustration-vector_199064-194.jpeg";
 import { faGithub, faTelegram } from "@fortawesome/free-brands-svg-icons";
