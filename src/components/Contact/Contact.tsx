@@ -1,12 +1,14 @@
-import  { FC } from "react";
+import  { FC, RefObject } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
-
-const Contact: FC = () => {
+interface ContactProps {
+    contactRef: RefObject<HTMLDivElement>;
+  }
+const Contact: FC <ContactProps> = ({contactRef}) => {
   return (
     <div className="h-screen flex flex-col items-center justify-center gap-16">
-      <h1 className="text-4xl uppercase">Contact me</h1>
+      <h1 className="text-4xl uppercase" ref={contactRef}>Contact me</h1>
       <div className="flex gap-10">
         <a
           href="https://github.com/KseniaShepherd"

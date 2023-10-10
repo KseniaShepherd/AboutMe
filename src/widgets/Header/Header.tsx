@@ -7,24 +7,20 @@ interface HeaderProps {
   aboutMeRef: React.RefObject<HTMLDivElement>;
   mySkillsRef: React.RefObject<HTMLDivElement>;
   myProjectsRef: React.RefObject<HTMLDivElement>;
+  contactRef:React.RefObject<HTMLDivElement>;
 }
 
-const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef , mySkillsRef, myProjectsRef}) => {
+const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef, mySkillsRef, myProjectsRef, contactRef }) => {
   const controls = useAnimation();
   const [scrolling, setScrolling] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const navItems = [
+    { name: "About me", ref: aboutMeRef },
+    { name: "My Skills", ref: mySkillsRef },
+    { name: "My Projects", ref: myProjectsRef },
+    { name: "Contact", ref: contactRef },
+  ];
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -63,49 +59,36 @@ const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef , mySkillsRef, myProj
     <motion.header
       initial={{ y: 0 }}
       animate={controls}
-      className="container px-9 h-20 py-6 z-50 flex flex-row place-content-between fixed bg-white bg-opacity-95"
+      className="container px-9 h-20 py-6 z-50 flex flex-row place-content-between fixed bg-white bg-opacity-95 w-full"
     >
       <div className="bg-black text-white h-10 w-10 flex items-center justify-center border rounded-full">
         KS
       </div>
-      {windowWidth > 600 ? (
-        <nav>
-          <ul className="uppercase flex flex-row gap-7">
-            <li
-              className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
-              onClick={() => scrollToRef(aboutMeRef)}
-            >
-              About me
-            </li>
-            <li className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
-            onClick={() => scrollToRef(mySkillsRef)}
-            >
-              My Skills
-            </li>
-            <li className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
-            onClick={() => scrollToRef(myProjectsRef)}
-            >
-              My Projects
-            </li>
-            <li className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer">
-              Contact
-            </li>
-          </ul>
-        </nav>
-      ) : (
-        <button
-          className="text-3xl transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </button>
-      )}
+
+      <nav className="hidden lg:flex">
+      <ul className="uppercase flex flex-row gap-7">
+        {navItems.map((item, index) => (
+          <li
+            key={index}
+            className="transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
+            onClick={() => item.ref ? scrollToRef(item.ref) : null}
+          >
+            {item.name}
+          </li>
+        ))}
+      </ul>
+      </nav>
+
+      <button className="text-3xl lg:hidden" onClick={toggleMenu}>
+        ☰
+      </button>
+
       <AnimatePresence>
-        {menuOpen && windowWidth <= 600 && (
+        {menuOpen && (
           <DropdownMenu
             scrollToRef={scrollToRef}
-            aboutMeRef={aboutMeRef} 
-            mySkillsRef ={mySkillsRef}
+            aboutMeRef={aboutMeRef}
+            mySkillsRef={mySkillsRef}
             myProjectsRef={myProjectsRef}
             toggleMenu={toggleMenu}
             menuOpen={menuOpen}

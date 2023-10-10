@@ -12,21 +12,23 @@ function App() {
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const mySkillsRef = useRef<HTMLDivElement>(null);
   const myProjectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className=" flex justify-center relative">
         <Header
           scrollToRef={scrollToRef}
           aboutMeRef={aboutMeRef}
           mySkillsRef={mySkillsRef}
           myProjectsRef={myProjectsRef}
+          contactRef={contactRef}
         />
       </div>
       <AboutMe aboutMeRef={aboutMeRef} />
       <MySkills mySkillsRef={mySkillsRef} />
       <MyProjects myProjectsRef={myProjectsRef} />
-      <Contact />
+      <Contact contactRef={contactRef}/>
     </div>
   );
 }
