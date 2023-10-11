@@ -31,7 +31,6 @@ const items = [
 const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const controls = useAnimation();
-  const controlsForSkills = useAnimation(); // Дополнительное управление анимацией для навыков
   const [skillsVisible, setSkillsVisible] = useState(false); // Переменная для контроля видимости навыков
 
   const divRef = useRef<HTMLDivElement>(null);
