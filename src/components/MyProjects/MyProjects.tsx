@@ -7,7 +7,7 @@ interface MyProjectsProps {
 }
 const MyProjects: FC<MyProjectsProps> = ({ myProjectsRef }) => {
   return (
-    <div>
+    <div className={"flex flex-col max-w-screen-xl w-full	 mx-auto"}>
       <h2 className="text-4xl font-sans mt-48">My Projects</h2>
       <div className="flex place-content-around mt-20" ref={myProjectsRef}>
         <div>

@@ -1,5 +1,5 @@
-import  { FC, RefObject} from "react";
-import { motion, AnimatePresence} from "framer-motion";
+import  { FC, RefObject, useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTerminal } from "@fortawesome/free-solid-svg-icons";
 interface MySkillsProps {
@@ -26,21 +26,24 @@ const items = [
 ];
 
 const MySkills: FC<MySkillsProps> = ({ mySkillsRef }) => {
-  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setScreenWidth(window.innerWidth);
-  //   };
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
   
-  //   window.addEventListener("resize", handleResize);
-  //   handleResize(); 
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
   
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (<div>
-         <FontAwesomeIcon icon={faTerminal} className="h-6 w-6 " />
+    <div className={"flex gap-2 items-center"}>
+         <FontAwesomeIcon icon={faTerminal} className="h-4 w-4 " />
+         <p className="text-2xl">Skills</p>
+         </div>
     <div className={`grid-flow-row gap-y-1.5`} ref={mySkillsRef}>
         <ul>
       <AnimatePresence>
