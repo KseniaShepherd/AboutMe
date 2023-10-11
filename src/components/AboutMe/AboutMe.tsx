@@ -3,10 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faAt, faTerminal } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
-import {
-  faArrowUpRightFromSquare,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
 
 interface AboutMeProps {
   aboutMeRef: RefObject<HTMLDivElement>;
