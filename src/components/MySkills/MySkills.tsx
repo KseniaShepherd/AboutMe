@@ -1,4 +1,4 @@
-import  { FC, RefObject, useEffect, useState } from "react";
+import  { FC, RefObject} from "react";
 import { motion, AnimatePresence} from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTerminal } from "@fortawesome/free-solid-svg-icons";
