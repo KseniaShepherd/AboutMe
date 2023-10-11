@@ -1,8 +1,12 @@
+import  { FC, RefObject } from "react";
 
-const Experience = () => {
+interface ExperienceProps {
+    myExperienceRef: RefObject<HTMLDivElement>;
+  }
+const Experience: FC <ExperienceProps>= ({myExperienceRef}) => {
     return (
         <div>
-            <h2 className="text-4xl font-bodoni mt-48">Experience</h2>
+            <h2 className="text-4xl font-bodoni mt-48" ref={myExperienceRef}>Experience</h2>
             <div className={"mt-20 flex flex-col gap-5"}>
                 <div className={"flex justify-between"}>
                       <h4 className={"text-2xl font-bold"}>SnowFlakes</h4>

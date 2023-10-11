@@ -79,7 +79,10 @@ const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
   }, []);
 
   return (
-    <div style={{ margin: "0 auto", padding: "0 5%" }} className="w-full h-full">
+    <div
+      style={{ margin: "0 auto", padding: "0 5%" }}
+      className="w-full h-full"
+    >
       <div className="mt-40 mb-8 flex flex-col md:mx-10 lg:mx-20 sm:mx-10">
         <h1 className="xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl xs:text-4xl font-sans font-bold whitespace-normal">
           Pastukhova Ksenia
@@ -116,29 +119,40 @@ const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
         </div>
       </div>
 
-      <h2 className="text-4xl font-bodoni mt-48">About Me</h2>
+      <h2 className="text-4xl font-bodoni mt-48" ref={aboutMeRef}>
+        About Me
+      </h2>
 
-      <div className={`flex ${screenWidth <= 768 ? "flex-col items-center" : "flex-row"} gap-7 `} ref={aboutMeRef}>
-        <div className={`${screenWidth <= 768 ? "w-3/4" : "w-full"} `}> 
-          <motion.div ref={divRef} initial={{ y: 0, opacity: 1 }} animate={controls} className="flex flex-col">
+      <div
+        className={`flex ${
+          screenWidth <= 768 ? "flex-col items-center" : "flex-row"
+        } gap-7 `}
+      >
+        <div className={`${screenWidth <= 768 ? "w-3/4" : "w-full"} `}>
+          <motion.div
+            ref={divRef}
+            initial={{ y: 0, opacity: 1 }}
+            animate={controls}
+            className="flex flex-col"
+          >
             <div>
               Привет! Меня зовут Ксения, я начинающий frontend разработчик с
               фокусом на технологии React. Мой опыт включает в себя разработку
-              интерфейсов с учетом принципов FSD, управление состоянием с помощью
-              Redux (thunk) и Redux Toolkit. Имею опыт настройки продвинутой
-              системы авторизации в веб-приложениях, работала с API для интеграции
-              информации о погоде и картами в приложения, так же был опыт работы с
-              библиотекой Framer Motion для создания анимаций и тестирование кода
-              с использованием Jest и Cypress. Я горжусь своими достижениями в
-              разработке и постоянно совершенствую свои навыки. В данный момент я
-              нахожусь на стажировке, где продолжаю расширять свой опыт и внедрять
-              передовые решения в разработке. Моя цель - продолжать расти как
-              разработчик и создавать высококачественные интерфейсы для
-              пользователей.
+              интерфейсов с учетом принципов FSD, управление состоянием с
+              помощью Redux (thunk) и Redux Toolkit. Имею опыт настройки
+              продвинутой системы авторизации в веб-приложениях, работала с API
+              для интеграции информации о погоде и картами в приложения, так же
+              был опыт работы с библиотекой Framer Motion для создания анимаций
+              и тестирование кода с использованием Jest и Cypress. Я горжусь
+              своими достижениями в разработке и постоянно совершенствую свои
+              навыки. В данный момент я нахожусь на стажировке, где продолжаю
+              расширять свой опыт и внедрять передовые решения в разработке. Моя
+              цель - продолжать расти как разработчик и создавать
+              высококачественные интерфейсы для пользователей.
             </div>
           </motion.div>
         </div>
-       
+
         <div className="w-1/4">
           <div>
             <div className={"flex gap-2 items-center"}>
@@ -150,12 +164,21 @@ const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
                 <AnimatePresence>
                   {items.map((item, index) => (
                     <motion.li
-                      className={"text-s px-1.5 w-max inline-block bg-emerald-200 rounded-2xl m-1"}
+                      className={
+                        "text-s px-1.5 w-max inline-block bg-emerald-200 rounded-2xl m-1"
+                      }
                       key={item}
                       initial={{ opacity: 0, y: 0 }}
-                      animate={skillsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+                      animate={
+                        skillsVisible
+                          ? { opacity: 1, y: 0 }
+                          : { opacity: 0, y: -20 }
+                      }
                       exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5, delay: skillsVisible ? index * 0.1 : 0 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: skillsVisible ? index * 0.1 : 0,
+                      }}
                     >
                       {item}
                     </motion.li>

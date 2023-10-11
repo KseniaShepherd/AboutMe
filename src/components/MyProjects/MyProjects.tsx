@@ -14,7 +14,7 @@ const MyProjects: FC<MyProjectsProps> = ({ myProjectsRef }) => {
    handleResize(); }, []);
   return (
     <div className={`flex flex-col max-w-screen-xl w-full	  mx-auto`}>
-      <h2 className="text-4xl font-sans mt-48" ref={myProjectsRef}>My Projects</h2>
+      <h2 className="text-4xl font-sans mt-28" ref={myProjectsRef}>My Projects</h2>
       <div className={`flex place-content-around mt-20 ${screenWidth <= 768 ? "flex-col items-center" : "flex-row"}`} ref={myProjectsRef}>
         <div>
           <motion.div className="flex flex-row gap-10">

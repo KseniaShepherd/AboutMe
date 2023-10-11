@@ -13,7 +13,7 @@ function App() {
     }
   };
   const aboutMeRef = useRef<HTMLDivElement>(null);
-  const mySkillsRef = useRef<HTMLDivElement>(null);
+  const myExperienceRef = useRef<HTMLDivElement>(null);
   const myProjectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
@@ -23,14 +23,14 @@ function App() {
       <Header
   scrollToRef={(ref) => scrollToRef(ref, 20)} // Здесь headerHeight - высота хедера
   aboutMeRef={aboutMeRef}
-  mySkillsRef={mySkillsRef}
+  myExperienceRef={myExperienceRef}
   myProjectsRef={myProjectsRef}
   contactRef={contactRef}
 />
       </div>
       <AboutMe aboutMeRef={aboutMeRef} />
       <MyProjects myProjectsRef={myProjectsRef} />
-      <Experience/>
+      <Experience myExperienceRef={myExperienceRef}/>
       <Contact contactRef={contactRef}/>
     </div>
   );
