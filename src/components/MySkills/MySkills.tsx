@@ -26,19 +26,19 @@ const items = [
 ];
 
 const MySkills: FC<MySkillsProps> = ({ mySkillsRef }) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
+  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setScreenWidth(window.innerWidth);
+  //   };
   
-    window.addEventListener("resize", handleResize);
-    handleResize(); 
+  //   window.addEventListener("resize", handleResize);
+  //   handleResize(); 
   
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
   return (<div>
          <FontAwesomeIcon icon={faTerminal} className="h-6 w-6 " />
     <div className={`grid-flow-row gap-y-1.5`} ref={mySkillsRef}>
