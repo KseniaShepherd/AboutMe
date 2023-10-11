@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import AboutMe from "./components/AboutMe/AboutMe";
 import Header from "./widgets/Header/Header";
-import MySkills from "./components/MySkills/MySkills";
 import MyProjects from "./components/MyProjects/MyProjects";
 import Contact from "./components/Contact/Contact";
 import './input.css'
+import Experience from "./components/Experience/Experience";
 function App() {
   const scrollToRef = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -26,8 +26,8 @@ function App() {
         />
       </div>
       <AboutMe aboutMeRef={aboutMeRef} />
-      <MySkills mySkillsRef={mySkillsRef} />
       <MyProjects myProjectsRef={myProjectsRef} />
+      <Experience/>
       <Contact contactRef={contactRef}/>
     </div>
   );

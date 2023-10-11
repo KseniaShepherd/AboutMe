@@ -1,29 +1,19 @@
 import { FC, RefObject, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import girl from "../../../public/girl-with-laptop-chair-freelance-studying-concept-illustration-vector_199064-194.jpeg";
 import { faGithub, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import { motion, useAnimation } from "framer-motion";
+import MySkills from "../MySkills/MySkills";
 
 interface AboutMeProps {
   aboutMeRef: RefObject<HTMLDivElement>;
 }
+
 const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const levitateAnimation = {
-    animate: {
-      y: ["0%", "2%", "0%"],
-    },
-    transition: {
-      y: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "linear",
-      },
-    },
-  };
   const controls = useAnimation();
   const divRef = useRef<HTMLDivElement>(null);
+  const mySkillsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -41,14 +31,14 @@ const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
       const rect = divRef.current.getBoundingClientRect();
       if (rect.top <= window.innerHeight && rect.bottom >= 0) {
         controls.start({
-          x: 0,
+          y: 50,
           transition: {
             duration: 0.5,
           },
         });
       } else {
         controls.start({
-          x: 50,
+          y: 0,
           transition: {
             duration: 3,
           },
@@ -70,10 +60,10 @@ const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
       className="w-full h-full"
     >
       <div className="mt-40 mb-8 flex flex-col md:mx-10 lg:mx-20 sm:mx-10">
-        <h1 className="xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl xs:text-4xl font-sans font-bold whitespace-normal">
+        <h1 className="xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl xs:text-4xl font-sans font-bold whitespace-normal mb-10">
           Pastukhova Ksenia
         </h1>
-        <h2 className="xl:text-4xl lg:text-3xl md:text-2xl sm:text-2xl xs:text-2lg font-sans whitespace-normal">
+        <h2 className="xl:text-4xl lg:text-3xl md:text-2xl sm:text-2xl xs:text-2lg font-sans whitespace-normal mb-20">
           React-developer
         </h2>
       </div>
@@ -103,27 +93,23 @@ const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
           <FontAwesomeIcon icon={faAt} className="h-8 w-8" />
           <a href="mailto:kpastukhova.ge@gmail.com">kpastukhova.ge@gmail.com</a>
         </div>
-      </div>
+      </div>  
+
+      <h2 className="text-4xl font-bodoni mt-48">About Me</h2>
+
       <div
-        className={`flex ${
-          screenWidth <= 768 ? "flex-col items-center" : "flex-row"
-        } place-content-around mt-48`}
+        className={`flex ${screenWidth <= 768 ? "flex-col items-center" : "flex-row"} gap-7 `}
         ref={aboutMeRef}
       >
-        <motion.img
-          className="h-96 w-96"
-          src={girl}
-          alt="girl"
-          {...levitateAnimation}
-        />
-        <motion.div
+       <div className={`${screenWidth <= 768 ? "w-3/4" : "w-full"} `}> 
+       <motion.div
           ref={divRef}
-          initial={{ x: 100, opacity: 1 }}
+          initial={{ y: 0, opacity: 1 }}
           animate={controls}
-          className="flex flex-col gap-10"
+          className="flex flex-col"
         >
-          <h2 className="text-4xl font-bodoni">About Me</h2>
-          <div className="">
+
+          <div >
             Привет! Меня зовут Ксения, я начинающий frontend разработчик с
             фокусом на технологии React. Мой опыт включает в себя разработку
             интерфейсов с учетом принципов FSD, управление состоянием с помощью
@@ -139,6 +125,11 @@ const AboutMe: FC<AboutMeProps> = ({ aboutMeRef }) => {
             пользователей.
           </div>
         </motion.div>
+        </div>
+       
+        <div className="w-1/4">
+        <MySkills mySkillsRef={mySkillsRef}/>
+        </div>
       </div>
     </div>
   );

@@ -1,23 +1,32 @@
-import  { FC, RefObject, useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import girl from "../../../public/girl-with-laptop-chair-freelance-studying-concept-illustration-vector_199064-194.jpeg";
+import  { FC, RefObject, useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTerminal } from "@fortawesome/free-solid-svg-icons";
 interface MySkillsProps {
   mySkillsRef: RefObject<HTMLDivElement>;
 }
+const items = [
+  "JavaScript (ES6+)",
+  "Typescript",
+  "HTML5",
+  "CSS (SASS, module)",
+  "REACT (hooks)",
+  "Redux (thunk)",
+  "ReduxToolkit, RTK-query",
+  "NextJs (SSR)",
+  "Framer Motion",
+  "Vite, npm && yarn", 
+  "Webpack",
+  "MUI , ANTD, ReactBootstrap",
+  "Feature Sliced Design, ATOMIC-Design",
+  "Figma",
+  "I18next",
+  "StoryBook",
+  "Jest, React-testing-library, Cypress",
+];
+
 const MySkills: FC<MySkillsProps> = ({ mySkillsRef }) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const levitateAnimation = {
-    animate: {
-      y: ["0%", "2%", "0%"],
-    },
-    transition: {
-      y: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "linear",
-      },
-    },
-  };
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -30,24 +39,27 @@ const MySkills: FC<MySkillsProps> = ({ mySkillsRef }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  return (
-    <div className={`flex ${screenWidth <= 768 ? 'flex-col items-center' : 'flex-row'} place-content-around mt-48`} ref={mySkillsRef}>
-    <motion.div className="flex flex-col gap-10">
-        <h2 className="text-4xl font-sans">My Skills</h2>
-        <div className="h-80 w-80 border">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae
-          ipsam modi ea eveniet consequatur debitis corporis nihil voluptas
-          aperiam soluta, provident iste odit molestias, alias odio, enim
-          tempore minus eaque.
-        </div>
-      </motion.div>
-      <motion.img
-        className="h-96 w-96"
-        src={girl}
-        alt="girl"
-        {...levitateAnimation}
-      />
-    </div>
+  return (<div>
+         <FontAwesomeIcon icon={faTerminal} className="h-6 w-6 " />
+    <div className={`grid-flow-row gap-y-1.5`} ref={mySkillsRef}>
+        <ul>
+      <AnimatePresence>
+        {items.map((item, index) => (
+          <motion.li
+          className={"text-s px-1.5 w-max inline-block bg-emerald-200 rounded-2xl m-1"}
+            key={item}
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            {item}
+          </motion.li>
+        ))}
+      </AnimatePresence>
+    </ul> 
+      </div>
+      </div>
   );
 };
 

@@ -17,8 +17,8 @@ const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef, mySkillsRef, myProje
 
   const navItems = [
     { name: "About me", ref: aboutMeRef },
-    { name: "My Skills", ref: mySkillsRef },
     { name: "My Projects", ref: myProjectsRef },
+    { name: "Experience", ref: mySkillsRef },
     { name: "Contact", ref: contactRef },
   ];
   useEffect(() => {
