@@ -5,12 +5,12 @@ import DropdownMenu from "../DropdownMenu/DropdownMenu";
 interface HeaderProps {
   scrollToRef: (ref: React.RefObject<HTMLDivElement>) => void;
   aboutMeRef: React.RefObject<HTMLDivElement>;
-  mySkillsRef: React.RefObject<HTMLDivElement>;
+  myExperienceRef: React.RefObject<HTMLDivElement>;
   myProjectsRef: React.RefObject<HTMLDivElement>;
   contactRef:React.RefObject<HTMLDivElement>;
 }
 
-const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef, mySkillsRef, myProjectsRef, contactRef }) => {
+const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef, myExperienceRef, myProjectsRef, contactRef }) => {
   const controls = useAnimation();
   const [scrolling, setScrolling] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,7 +18,7 @@ const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef, mySkillsRef, myProje
   const navItems = [
     { name: "About me", ref: aboutMeRef },
     { name: "My Projects", ref: myProjectsRef },
-    { name: "Experience", ref: mySkillsRef },
+    { name: "Experience", ref: myExperienceRef },
     { name: "Contact", ref: contactRef },
   ];
   useEffect(() => {
@@ -88,8 +88,8 @@ const Header: FC<HeaderProps> = ({ scrollToRef, aboutMeRef, mySkillsRef, myProje
           <DropdownMenu
             scrollToRef={scrollToRef}
             aboutMeRef={aboutMeRef}
-            mySkillsRef={mySkillsRef}
-            myProjectsRef={myProjectsRef}
+            myProjectsRef={myProjectsRef} 
+            myExperienceRef={myExperienceRef}
             toggleMenu={toggleMenu}
             menuOpen={menuOpen}
           />

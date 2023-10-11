@@ -6,7 +6,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 interface DropdownMenuProps {
   scrollToRef: (ref: React.RefObject<HTMLDivElement>) => void;
   aboutMeRef: React.RefObject<HTMLDivElement>;
-  mySkillsRef: React.RefObject<HTMLDivElement>;
+  myExperienceRef: React.RefObject<HTMLDivElement>;
   myProjectsRef: React.RefObject<HTMLDivElement>;
   toggleMenu: () => void;
   menuOpen: boolean;
@@ -15,8 +15,8 @@ interface DropdownMenuProps {
 const DropdownMenu: FC<DropdownMenuProps> = ({
   scrollToRef,
   aboutMeRef,
-  mySkillsRef,
   myProjectsRef,
+  myExperienceRef,
   toggleMenu,
   menuOpen,
 }) => {
@@ -48,15 +48,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
         >
           About me
         </li>
-        <li
-          className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
-          onClick={() => {
-            scrollToRef(mySkillsRef);
-            toggleMenu();
-          }}
-        >
-          My Skills
-        </li>
+    
         <li
           className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
           onClick={() => {
@@ -65,6 +57,15 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
           }}
         >
           My Projects
+        </li>  
+          <li
+          className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"
+          onClick={() => {
+            scrollToRef(myExperienceRef);
+            toggleMenu();
+          }}
+        >
+          Experience
         </li>
         <li className=" transition-transform hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer">
           Contact

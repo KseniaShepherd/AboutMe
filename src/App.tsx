@@ -7,7 +7,7 @@ import './input.css'
 import Experience from "./components/Experience/Experience";
 function App() {
   const scrollToRef = (ref: React.RefObject<HTMLDivElement>, headerHeight: number) => {
-    if (ref.current) { // Проверьте, что ref.current существует
+    if (ref.current) { 
       const yOffset = ref.current.getBoundingClientRect().top - headerHeight;
       window.scrollTo({ top: yOffset, behavior: "smooth" });
     }
@@ -21,10 +21,10 @@ function App() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className=" flex justify-center relative">
       <Header
-  scrollToRef={(ref) => scrollToRef(ref, 20)} // Здесь headerHeight - высота хедера
+  scrollToRef={(ref) => scrollToRef(ref, 92)} // Здесь headerHeight - высота хедера
   aboutMeRef={aboutMeRef}
-  myExperienceRef={myExperienceRef}
-  myProjectsRef={myProjectsRef}
+  myProjectsRef={myProjectsRef} 
+   myExperienceRef={myExperienceRef}
   contactRef={contactRef}
 />
       </div>
