@@ -1,5 +1,5 @@
-import  { FC, RefObject, useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import  { FC, RefObject, useEffect, useState } from "react";
+import { motion, AnimatePresence} from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTerminal } from "@fortawesome/free-solid-svg-icons";
 interface MySkillsProps {
