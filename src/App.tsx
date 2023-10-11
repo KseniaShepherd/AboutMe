@@ -6,8 +6,11 @@ import Contact from "./components/Contact/Contact";
 import './input.css'
 import Experience from "./components/Experience/Experience";
 function App() {
-  const scrollToRef = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToRef = (ref: React.RefObject<HTMLDivElement>, headerHeight: number) => {
+    if (ref.current) { // Проверьте, что ref.current существует
+      const yOffset = ref.current.getBoundingClientRect().top - headerHeight;
+      window.scrollTo({ top: yOffset, behavior: "smooth" });
+    }
   };
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const mySkillsRef = useRef<HTMLDivElement>(null);
@@ -17,13 +20,13 @@ function App() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className=" flex justify-center relative">
-        <Header
-          scrollToRef={scrollToRef}
-          aboutMeRef={aboutMeRef}
-          mySkillsRef={mySkillsRef}
-          myProjectsRef={myProjectsRef}
-          contactRef={contactRef}
-        />
+      <Header
+  scrollToRef={(ref) => scrollToRef(ref, 20)} // Здесь headerHeight - высота хедера
+  aboutMeRef={aboutMeRef}
+  mySkillsRef={mySkillsRef}
+  myProjectsRef={myProjectsRef}
+  contactRef={contactRef}
+/>
       </div>
       <AboutMe aboutMeRef={aboutMeRef} />
       <MyProjects myProjectsRef={myProjectsRef} />
