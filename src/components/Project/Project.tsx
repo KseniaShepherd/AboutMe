@@ -12,6 +12,9 @@ interface ProjectProps {
   title: string;
   technologies: string;
   description: string;
+  linkGitHub: string
+  linkProject: string
+
 }
 
 const Project: React.FC<ProjectProps> = ({
@@ -19,6 +22,8 @@ const Project: React.FC<ProjectProps> = ({
   title,
   technologies,
   description,
+  linkGitHub,
+  linkProject
 }) => {
   return (
     <div className={"w-6/12 flex flex-col gap-3"}>
@@ -32,22 +37,22 @@ const Project: React.FC<ProjectProps> = ({
         }}
         transition={{ duration: 0.3 }}
       >
-        <img src={img} alt={title}></img>
+        <img src={img} alt={title} className={"w-full h-80"}></img>
       </motion.div>
       <div className={"flex justify-between"}>
         <h4 className={"text-2xl font-bold"}>{title}</h4>
         <div className={"flex gap-4 content-center"}>
           <a
-            href="https://github.com/KseniaShepherd"
+            href={linkGitHub}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faGithub} className="h-4 w-4" />
+            <FontAwesomeIcon icon={faGithub} className={"h-4 w-4 hover:scale-98 hover:-translate-y-1 hover:-translate-x-1"} />
           </a>
-          <a href="" target="_blank">
+          <a href={linkProject} target="_blank">
             <FontAwesomeIcon
               icon={faArrowUpRightFromSquare}
-              className="h-4 w-4"
+              className={"h-4 w-4 hover:scale-98 hover:-translate-y-1 hover:-translate-x-1"}
             />
           </a>
         </div>
@@ -55,7 +60,7 @@ const Project: React.FC<ProjectProps> = ({
       <p className={"text-emerald-400"}>{technologies}</p>
       <div>
         <p>{description}</p>
-        <p className={"text-emerald-400 flex items-center"}>
+        <p className={"text-emerald-400 flex items-center hover:scale-98 hover:-translate-y-1 hover:-translate-x-1 cursor-pointer"}>
          
           Больше <FontAwesomeIcon
             icon={faChevronRight}

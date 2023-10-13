@@ -1,6 +1,7 @@
 import { FC, RefObject, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import todo from "../../../public/todoapp.png";
+import weather from "../../../public/weather.png"
 import Project from "../Project/Project";
 interface MyProjectsProps {
   myProjectsRef: RefObject<HTMLDivElement>;
@@ -23,12 +24,15 @@ const MyProjects: FC<MyProjectsProps> = ({ myProjectsRef }) => {
               title="TodoApp"
               technologies="TypeScript - React - RTK - MUI - Framer Motion - JSON Server"
               description="This is a simple Todo application built with React, Redux Toolkit, and Material-UI. It allows you to add, remove, and sort tasks (by completed, uncompleted, and ready-to-do)."
-            />
+           linkGitHub="https://github.com/KseniaShepherd/ToDoApp"
+            linkProject="https://github.com/KseniaShepherd/ToDoApp"/> 
             <Project
-              img={todo}
-              title="TodoApp"
-              technologies="TypeScript - React - RTK - MUI - Framer Motion - JSON Server"
-              description="This is a simple Todo application built with React, Redux Toolkit, and Material-UI. It allows you to add, remove, and sort tasks (by completed, uncompleted, and ready-to-do)."
+              img={weather}
+              title="WeatherApp"
+              technologies="React - TypeScript - HTML/CSS - Redux Toolkit"
+              description="This is a React-based web application that allows users to search for locations, view them on a map, and check the current weather conditions for those locations. It integrates with weather and map APIs to provide real-time data."
+              linkGitHub="https://github.com/KseniaShepherd/WeatherMap"
+              linkProject="https://github.com/KseniaShepherd/WeatherMap"
             />
           </motion.div>
         </div>

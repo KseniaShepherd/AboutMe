@@ -15,17 +15,17 @@ const Contact: FC <ContactProps> = ({contactRef}) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faGithub} className="h-10 w-10" />
+          <FontAwesomeIcon icon={faGithub} className={"h-10 w-10 hover:scale-98 hover:-translate-y-1 hover:-translate-x-1"} />
         </a>
         <a
           href="https://t.me/KsShepherd"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faTelegram} className="h-10 w-10" />
+          <FontAwesomeIcon icon={faTelegram} className={"h-10 w-10 hover:scale-98 hover:-translate-y-1 hover:-translate-x-1"} />
         </a>
         <a href="mailto:kpastukhova.ge@gmail.com">
-          <FontAwesomeIcon icon={faAt} className="h-10 w-10" />
+          <FontAwesomeIcon icon={faAt} className={"h-10 w-10 hover:scale-98 hover:-translate-y-1 hover:-translate-x-1"} />
         </a>
       </div>
     </div>
